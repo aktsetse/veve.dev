@@ -27,11 +27,11 @@ const WhatIDo = () => {
   return (
     <div className="whatIDO">
       <div className="what-box">
-        <h2 className="title">
-          W<span className="hat-h2">HAT</span>
-          <div>
+        <h2 className="title what-main-title">
+          <span className="what-line">WHAT</span>
+          <span className="what-line">
             I<span className="do-h2"> DO</span>
-          </div>
+          </span>
         </h2>
       </div>
       <div className="what-box">
@@ -87,11 +87,14 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
+              <h3>Developer</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                I build scalable and reliable software that solves meaningful
+                problems. I enjoy working with modern technologies such as
+                TypeScript, React, and Node.js to transform ideas into real
+                applications while constantly improving how systems are designed
+                and engineered.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
@@ -128,22 +131,25 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
+              <h3>PHILANTHROPY</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                Giving back to the community is important to me. I am
+                passionate about using my skills, time, and resources to
+                support initiatives that promote education, opportunity, and
+                positive impact in people's lives.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">Project coordination</div>
+                <div className="what-tags">Partnership building</div>
+                <div className="what-tags">Advocacy</div>
+                <div className="what-tags">Leadership</div>
+                <div className="what-tags">Public speaking</div>
+                <div className="what-tags">Community outreach</div>
+                <div className="what-tags">Mentorship</div>
+                <div className="what-tags">Volunteer coordination</div>
+                <div className="what-tags">Fundraising</div>
               </div>
               <div className="what-arrow"></div>
             </div>

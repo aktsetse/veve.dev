@@ -1,5 +1,5 @@
 .work-section h2 {
-  margin-top: 100px;
+  margin: 0 0 30px;
   font-size: 70px;
   font-weight: 500;
 }
@@ -8,9 +8,12 @@
 }
 .work-section {
   transition: 0s;
-  height: 100vh;
+  height: var(--vh);
   box-sizing: border-box;
   will-change: transform;
+  position: relative;
+  z-index: 1;
+  background-color: var(--backgroundColor);
 }
 .work-container {
   margin: auto;
@@ -18,6 +21,9 @@
   flex-direction: column;
   height: 100%;
   align-content: stretch;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 .work-flex {
   width: 100%;
@@ -140,7 +146,7 @@
   .work-section h2 {
     font-size: 60px;
     margin-bottom: 30px;
-    margin-top: 70px;
+    margin-top: 0;
   }
 }
 @media only screen and (max-width: 1400px) {
@@ -201,8 +207,14 @@
   }
 } */
 @media only screen and (max-width: 1025px) {
+  .work-section {
+    height: auto;
+    min-height: var(--vh);
+  }
   .work-container {
     align-content: normal;
+    padding-top: 50px;
+    padding-bottom: 30px;
   }
   .work-flex {
     height: auto;
