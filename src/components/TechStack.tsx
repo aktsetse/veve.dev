@@ -21,6 +21,17 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
+  "/images/java.png",
+  "/images/swift.jpeg",
+  "/images/python.png",
+  "/images/c.png",
+  "/images/c++.png",
+  "/images/aws.png",
+  "/images/django.png",
+  "/images/firebase.png",
+  "/images/sqlite.jpeg",
+  "/images/prisma.png",
+  "/images/php.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -193,7 +204,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i % materials.length]}
               isActive={isActive}
             />
           ))}

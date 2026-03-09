@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
 
 :root {
-  font-family: "Manrope", sans-serif;
+  --font-sf: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sf);
 
   font-optical-sizing: auto;
   font-style: normal;
@@ -29,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-sf);
   letter-spacing: -0.01em;
 }
 body {
@@ -41,6 +43,26 @@ a {
 }
 a:hover {
   color: var(--accentColor);
+}
+
+.brand-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.brand-signature .brand-word {
+  font-family: "Allura", cursive;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-signature .brand-mark {
+  font-family: var(--font-sf);
+  opacity: 0.45;
+  line-height: 1;
 }
 main {
   opacity: 1;

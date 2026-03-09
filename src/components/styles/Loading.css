@@ -194,9 +194,14 @@
   color: var(--backgroundColor);
 }
 .loader-title {
-  font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.2px;
+}
+.loader-title .brand-word {
+  font-size: 36px;
+  transform: translateY(1px);
+}
+.loader-title .brand-mark {
+  font-size: 18px;
 }
 @keyframes blink {
   0% {
@@ -352,6 +357,12 @@
   .loader-title {
     font-size: 16px;
   }
+  .loader-title .brand-word {
+    font-size: 42px;
+  }
+  .loader-title .brand-mark {
+    font-size: 22px;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .loading-header {
@@ -359,5 +370,11 @@
   }
   .loader-title {
     font-size: 18px;
+  }
+  .loader-title .brand-word {
+    font-size: 52px;
+  }
+  .loader-title .brand-mark {
+    font-size: 28px;
   }
 }

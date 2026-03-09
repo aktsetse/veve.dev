@@ -6,6 +6,73 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+type Project = {
+  title: string;
+  category: string;
+  summary: string;
+  tools: string;
+  image: string;
+  link?: string;
+  year: string;
+};
+
+const projects: Project[] = [
+  {
+    title: "Inkspire",
+    category: "Web Application",
+    summary: "Book Social Platform",
+    tools:
+      "React, Vite, CSS, Node.js, Express, Prisma, PostgreSQL, Supabase, RESTful APIs",
+    image: "/images/Inkspire.jpeg",
+    link: "https://github.com/aktsetse/Inkspire",
+    year: "2025",
+  },
+  {
+    title: "BrainTrek",
+    category: "Terminal Application",
+    summary: "Game",
+    tools: "Java, AWT, Swing",
+    image: "/images/BrainTrek.png",
+    link: "https://github.com/aktsetse/BrainTrek",
+    year: "2025",
+  },
+  {
+    title: "MobileStrokeUnit App",
+    category: "Web Application",
+    summary: "Health Platform",
+    tools: "React, Flask, Bootstrap, Axios, SQLite",
+    image: "/images/MobileStrokeUnit.png",
+    link: "https://ephemeral-taiyaki-bf5fc3.netlify.app/",
+    year: "2025",
+  },
+  {
+    title: "MediBill",
+    category: "Web Application",
+    summary: "Health Platform",
+    tools: "Typescript, React, Tailwindcss, Next.js, Firebase Auth, Tesseract",
+    image: "/images/MediBill.jpeg",
+    link: "https://medi-bill-eight.vercel.app/login",
+    year: "2025",
+  },
+  {
+    title: "Brille Technology",
+    category: "iOS Application",
+    summary: "Disability Assistance",
+    tools: "Makefile, Swift, C++, SwiftUI",
+    image: "/images/Brille Technology.jpeg",
+    link: "https://github.com/aktsetse/Braille-Technology",
+    year: "2025",
+  },
+  {
+    title: "Limit Order Book Simulator",
+    category: "Market Simulation",
+    summary: "Trading Assistant",
+    tools: "Python, NumPy, Pandas, C++, asyncio, matplotlib",
+    image: "/images/Limit Order Simulator.jpeg",
+    year: "2026",
+  },
+];
+
 const Work = () => {
   useGSAP(() => {
   let translateX = 0;
@@ -59,21 +126,23 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
-            <div className="work-box" key={index}>
+          {projects.map((project, index) => (
+            <div className="work-box" key={project.title}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.title}</h4>
+                    <p>
+                      {project.category} • {project.year}
+                    </p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <h4>{project.summary}</h4>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image} alt={project.title} link={project.link} />
             </div>
           ))}
         </div>

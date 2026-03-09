@@ -41,8 +41,10 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          veve.dev
+        <a href="/#" className="navbar-title brand-signature" data-cursor="disable">
+          <span className="brand-mark">&lt;</span>
+          <span className="brand-word">veve.dev</span>
+          <span className="brand-mark">/&gt;</span>
         </a>
         <a
           href="mailto:aktsetse@gmail.com"

@@ -131,7 +131,7 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>PHILANTHROPY</h3>
+              <h3>Community Impact</h3>
               <h4>Description</h4>
               <p>
                 Giving back to the community is important to me. I am
