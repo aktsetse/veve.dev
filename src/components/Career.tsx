@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./styles/Career.css";
 
 type Experience = {
@@ -25,6 +26,30 @@ const experiences: Experience[] = [
     logo: "/images/google_logo.jpeg",
   },
   {
+    company: "Mastercard",
+    role: "Data Science Innovation Challenge",
+    year: "2025",
+    description:
+      "Led a finalist team in a data science competition hosted by Mastercard, analyzing the Inclusive Growth Score to develop data-driven strategies for reducing housing access disparities in underserved communities.",
+    logo: "/images/mastercard_logo.png",
+  },
+  {
+    company: "AAAS",
+    role: "Maker Showcase & Innovation Competition Finalist",
+    year: "2025",
+    description:
+      "Finalist in the AAAS HBCU Maker Showcase Pitch Competition, leading a team to develop an impact-driven solution aligned with the UN Sustainable Development Goals and recognized by NSF and industry experts.",
+    logo: "/images/aaasorg_logo.jpeg",
+  },
+  {
+    company: "Hearers and Givers Foundation",
+    role: "Co-founder",
+    year: "2022",
+    description:
+      "I co-founded a youth-led mental health organization dedicated to mitigating mental health distress through counseling, psychological aid, and annual donation drives. Impacted over 2000 individuals since its inception in 2022.",
+    logo: "/images/Hearers_logo.jpeg",
+  },
+  {
     company: "EY",
     role: "Expedition Program",
     year: "2026",
@@ -49,22 +74,6 @@ const experiences: Experience[] = [
     logo: "/images/citi_logo.png",
   },
   {
-    company: "Mastercard",
-    role: "Data Science Innovation Challenge Finalist",
-    year: "2025",
-    description:
-      "Led a finalist team in a data science competition hosted by Mastercard, analyzing the Inclusive Growth Score to develop data-driven strategies for reducing housing access disparities in underserved communities.",
-    logo: "/images/mastercard_logo.png",
-  },
-  {
-    company: "The American Association for the Advancement of Science (AAAS)",
-    role: "Maker Showcase & Innovation Showcase Competition Finalist",
-    year: "2025",
-    description:
-      "Finalist in the AAAS HBCU Maker Showcase Pitch Competition, leading a team to develop an impact-driven solution aligned with the UN Sustainable Development Goals and recognized by NSF and industry experts.",
-    logo: "/images/aaasorg_logo.jpeg",
-  },
-  {
     company: "NVIDIA",
     role: "Summer Bridge Program",
     year: "2025",
@@ -81,14 +90,6 @@ const experiences: Experience[] = [
     logo: "/images/amazon_logo.jpeg",
   },
   {
-    company: "PwC",
-    role: "Outamation AI-Powered Document Insights & Data Extraction Externship",
-    year: "2025",
-    description:
-      "Built and optimized an AI-powered system to extract structured insights from documents using modern machine learning and NLP techniques.",
-    logo: "/images/pwc_logo.jpeg",
-  },
-  {
     company: "Goldman Sachs",
     role: "Possibilities Summit Participant",
     year: "2024",
@@ -97,14 +98,22 @@ const experiences: Experience[] = [
     logo: "/images/GoldmanSachs_logo.png",
   },
   {
-    company: "Hearers and Givers Foundation",
-    role: "Co-founder",
-    year: "2022",
+    company: "PwC",
+    role: "Outamation AI - Powered Document Insights and Data Extration extenship",
+    year: "2025",
     description:
-      "I co-founded a youth-led mental health organization dedicated to mitigating mental health distress through counseling, psychological aid, and annual donation drives.",
-    logo: "/images/Hearers_logo.jpeg",
+      "Built and optimized an AI-powered system to extract structured insights from documents using modern machine learning and NLP techniques.",
+    logo: "/images/pwc_logo.jpeg",
   },
 ];
+
+const featuredExperiences = new Set([
+  "Gusto-Software Engineering Intern",
+  "Google-Software Engineering Fellow",
+  "Mastercard-Data Science Innovation Challenge",
+  "AAAS-Maker Showcase & Innovation Competition Finalist",
+  "Hearers and Givers Foundation-Co-founder",
+]);
 
 const getInitials = (name: string) =>
   name
@@ -115,6 +124,17 @@ const getInitials = (name: string) =>
     .join("");
 
 const Career = () => {
+  const [showAll, setShowAll] = useState(false);
+  const prioritizedExperiences = experiences.filter((experience) =>
+    featuredExperiences.has(`${experience.company}-${experience.role}`)
+  );
+  const additionalExperiences = experiences.filter(
+    (experience) => !featuredExperiences.has(`${experience.company}-${experience.role}`)
+  );
+  const displayedExperiences = showAll
+    ? [...prioritizedExperiences, ...additionalExperiences]
+    : prioritizedExperiences;
+
   return (
     <div className="career-section section-container">
       <div className="career-container">
@@ -126,7 +146,7 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
-          {experiences.map((experience, index) => (
+          {displayedExperiences.map((experience, index) => (
             <div className="career-info-box" key={`${experience.company}-${index}`}>
               <div className="career-info-in">
                 <div className="career-role">
@@ -149,6 +169,15 @@ const Career = () => {
               <p>{experience.description}</p>
             </div>
           ))}
+          {additionalExperiences.length > 0 ? (
+            <button
+              type="button"
+              className="career-toggle"
+              onClick={() => setShowAll((current) => !current)}
+            >
+              {showAll ? "Show less" : "View more"}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
